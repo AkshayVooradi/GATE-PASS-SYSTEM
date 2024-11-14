@@ -116,7 +116,7 @@ export default function RequestList({ requests, onApprove, onDeny, userRole }) {
                   )}
 
                   {/* Show QR code after OTP is verified */}
-                  {verified && (
+                  {request.status === 'approved' && userRole === 'student' && verified && (
                     <div className="mt-4">
                       <div className="flex items-center space-x-4">
                         <QRCode value={JSON.stringify(request.qrData)} size={128} />
